@@ -1,4 +1,4 @@
-<div class="board">
+<div class="board" cdkDropList>
   <ng-container *ngFor="let tileR of boardData.row">
     <ng-container *ngFor="let tileC of boardData.column">
       <div class="tile" [ngClass]="boardService.blackOrWhite(tileR, tileC)">
@@ -8,6 +8,11 @@
             *ngIf="boardService.getTile(tileR, tileC, piece)"
           >
             <pawn *ngSwitchCase="'pawn'" [data]="piece"></pawn>
+            <bishop *ngSwitchCase="'bishop'" [data]="piece"></bishop>
+            <queen *ngSwitchCase="'queen'" [data]="piece"></queen>
+            <king *ngSwitchCase="'king'" [data]="piece"></king>
+            <knight *ngSwitchCase="'knight'" [data]="piece"></knight>
+            <rook *ngSwitchCase="'rook'" [data]="piece"></rook>
           </ng-container>
         </ng-container>
 

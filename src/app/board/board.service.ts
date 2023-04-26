@@ -45,6 +45,46 @@ export class BoardService {
             coord: [8, 2],
             color: Color.WHITE
         },
+        {
+            type: Pieces.BISHOP,
+            coord: [6, 1],
+            color: Color.WHITE
+        },
+        {
+            type: Pieces.BISHOP,
+            coord: [3, 1],
+            color: Color.WHITE
+        },
+        {
+            type: Pieces.KNIGHT,
+            coord: [7, 1],
+            color: Color.WHITE
+        },
+        {
+            type: Pieces.KNIGHT,
+            coord: [2, 1],
+            color: Color.WHITE
+        },
+        {
+            type: Pieces.ROOK,
+            coord: [8, 1],
+            color: Color.WHITE
+        },
+        {
+            type: Pieces.ROOK,
+            coord: [1, 1],
+            color: Color.WHITE
+        },
+        {
+            type: Pieces.QUEEN,
+            coord: [4, 1],
+            color: Color.WHITE
+        },
+        {
+            type: Pieces.KING,
+            coord: [5, 1],
+            color: Color.WHITE
+        },
     ]
 
     public boardState: TileData[] = this.initialState;
