@@ -1,0 +1,20 @@
+<div class="board">
+  <ng-container *ngFor="let tileR of boardData.row">
+    <ng-container *ngFor="let tileC of boardData.column">
+      <div class="tile" [ngClass]="boardService.blackOrWhite(tileR, tileC)">
+        <ng-container *ngFor="let piece of boardService.boardState">
+          <ng-container
+            [ngSwitch]="piece.type"
+            *ngIf="boardService.getTile(tileR, tileC, piece)"
+          >
+            <pawn *ngSwitchCase="'pawn'" [data]="piece"></pawn>
+          </ng-container>
+        </ng-container>
+
+        <span class="tile__label"
+          >{{ tileR | getNormalizeRow }} / {{ tileC }}</span
+        >
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

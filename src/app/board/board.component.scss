@@ -1,0 +1,47 @@
+@import "/src/assets/sass/variables.scss";
+
+.board {
+  width: 816px;
+  height: 816px;
+
+  border: 2px solid $black;
+
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+}
+
+.tile {
+  width: 100px;
+  height: 100px;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__label {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    font-size: 10px;
+    pointer-events: none;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+}
+
+.white {
+  background-color: $white;
+  border: 1px solid $white;
+  color: $black;
+}
+
+.black {
+  background-color: $black;
+  border: 1px solid $black;
+  color: $white;
+}
