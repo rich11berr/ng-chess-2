@@ -1,3 +1,9 @@
-<div class="piece" cdkDrag>
+<div
+  class="piece"
+  cdkDrag
+  (cdkDragStarted)="onDragStart($event)"
+  (cdkDragEnded)="onDragEnd($event)"
+>
+  <div class="custom-placeholder" *cdkDragPlaceholder></div>
   <img [src]="image" alt="pawn" width="60px" height="auto" />
 </div>

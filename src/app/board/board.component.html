@@ -6,12 +6,15 @@
         (cdkDropListDropped)="pieceService.onPieceDropped($event)"
         class="tile"
         [id]="getTileId(tileR, tileC)"
-        [ngClass]="boardService.blackOrWhite(tileR, tileC)"
+        [ngClass]="[
+          getHighlightedTile(tileR, tileC),
+          blackOrWhite(tileR, tileC)
+        ]"
       >
         <ng-container *ngFor="let piece of boardService.boardState">
           <ng-container
             [ngSwitch]="piece.type"
-            *ngIf="boardService.getTile(tileR, tileC, piece)"
+            *ngIf="getTile(tileR, tileC, piece)"
           >
             <pawn *ngSwitchCase="'pawn'" [data]="piece"></pawn>
             <bishop *ngSwitchCase="'bishop'" [data]="piece"></bishop>

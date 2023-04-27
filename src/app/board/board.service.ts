@@ -93,34 +93,102 @@ export class BoardService {
             coord: [5, 1],
             color: Color.WHITE,
         },
+        {
+            type: Pieces.PAWN,
+            coord: [1, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.PAWN,
+            coord: [2, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.PAWN,
+            coord: [3, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.PAWN,
+            coord: [4, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.PAWN,
+            coord: [5, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.PAWN,
+            coord: [6, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.PAWN,
+            coord: [7, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.PAWN,
+            coord: [8, 7],
+            color: Color.BLACK,
+            isFirstMove: true
+        },
+        {
+            type: Pieces.KNIGHT,
+            coord: [2, 8],
+            color: Color.BLACK,
+        },
+        {
+            type: Pieces.KNIGHT,
+            coord: [7, 8],
+            color: Color.BLACK,
+        },
+        {
+            type: Pieces.ROOK,
+            coord: [1, 8],
+            color: Color.BLACK,
+        },
+        {
+            type: Pieces.ROOK,
+            coord: [8, 8],
+            color: Color.BLACK,
+        },
+        {
+            type: Pieces.BISHOP,
+            coord: [3, 8],
+            color: Color.BLACK,
+        },
+        {
+            type: Pieces.BISHOP,
+            coord: [6, 8],
+            color: Color.BLACK,
+        },
+        {
+            type: Pieces.QUEEN,
+            coord: [4, 8],
+            color: Color.BLACK,
+        },
+        {
+            type: Pieces.KING,
+            coord: [5, 8],
+            color: Color.BLACK,
+        },
     ]
 
     public boardState: TileData[] = this.initialState;
 
+    public highlightedTiles: number[][] = [];
+
     constructor() { }
 
-    public blackOrWhite(row: number, column: number): string {
-        if (row % 2 === 0) {
-            if (column % 2 === 0) {
-                return 'black'
-            } else {
-                return 'white'
-            }
-        } else {
-            if (column % 2 === 0) {
-                return 'white'
-            } else {
-                return 'black'
-            }
-        }
-    }
 
-    public getTile(row: number, column: number, tile: TileData): boolean {
-        if (
-            tile.coord[0] === row && tile.coord[1] === column
-        ) {
-            return true
-        } else { return false }
-    }
 
 }

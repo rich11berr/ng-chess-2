@@ -32,6 +32,14 @@ export class PieceComponent implements OnInit {
 
     ngOnInit() { }
 
+    public onDragStart(event: any) {
+        this.pieceService.highlightMoves(this.data);
+    }
+
+    public onDragEnd(event: any) {
+        this.pieceService.deHighlightMoves();
+    }
+
 
 
 
