@@ -2,6 +2,7 @@ export interface TileData {
     type: Pieces,
     coord: number[],
     color: Color,
+    isFirstMove?: boolean;
 }
 
 export enum Color {

@@ -1,5 +1,8 @@
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { TileData } from '../board/board-spec';
+import { BoardService } from '../board/board.service';
+import { PieceService } from './pieces.service';
 
 @Component({
     selector: 'piece',
@@ -22,9 +25,16 @@ export class PieceComponent implements OnInit {
         return `../../../assets/pieces/${this.isWhite ? 'w' : 'b'}_${this.type}_svg_withShadow.svg`
     }
 
-    constructor() { }
+    constructor(
+        public boardService: BoardService,
+        public pieceService: PieceService,
+    ) { }
 
     ngOnInit() { }
+
+
+
+
 
 
 }

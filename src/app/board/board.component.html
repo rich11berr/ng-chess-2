@@ -1,7 +1,13 @@
-<div class="board" cdkDropList>
+<div class="board" cdkDropListGroup>
   <ng-container *ngFor="let tileR of boardData.row">
     <ng-container *ngFor="let tileC of boardData.column">
-      <div class="tile" [ngClass]="boardService.blackOrWhite(tileR, tileC)">
+      <div
+        cdkDropList
+        (cdkDropListDropped)="pieceService.onPieceDropped($event)"
+        class="tile"
+        [id]="getTileId(tileR, tileC)"
+        [ngClass]="boardService.blackOrWhite(tileR, tileC)"
+      >
         <ng-container *ngFor="let piece of boardService.boardState">
           <ng-container
             [ngSwitch]="piece.type"
