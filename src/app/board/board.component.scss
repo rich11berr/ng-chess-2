@@ -50,3 +50,12 @@
   background-color: $green;
   border: 1px solid $green;
 }
+
+.attack {
+  background-color: 1px solid $red;
+  border: 1px solid $red;
+}
+
+.flipped {
+  transform: rotate(180deg);
+}

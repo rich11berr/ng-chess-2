@@ -30,7 +30,7 @@ export class PieceService {
             return
         }
 
-        if (this.onAlly(currentTileId)) {
+        if (this.onAlly(currentTileId, currentItem)) {
             return
         }
 
@@ -47,11 +47,7 @@ export class PieceService {
         this.boardService.boardState.push(currentItem);
     }
 
-    public onAlly(target: number[]): boolean {
-        if (this.boardService.boardState.find(item => JSON.stringify(item.coord) == JSON.stringify(target)) !== undefined) {
-            return true
-        } else return false;
-    }
+
 
     public highlightMoves(item: TileData) {
         this.boardService.highlightedTiles = this.getPossibleMoves(item)!;
@@ -61,12 +57,24 @@ export class PieceService {
         this.boardService.highlightedTiles = [];
     }
 
-    private getPossibleMoves(item: TileData) {
-        switch (item.type) {
+    private onAlly(target: number[], tile: TileData): boolean {
+        if (this.boardService.boardState.find(item => JSON.stringify(item.coord) == JSON.stringify(target)) !== undefined) {
+            return true
+        } else return false;
+    }
+
+    private onEnemy(target: number[], tile: TileData): boolean {
+        if (this.boardService.boardState.find(item => (JSON.stringify(item.coord) == JSON.stringify(target) && (item.color !== tile.color))) !== undefined) {
+            return true
+        } else return false;
+    }
+
+    private getPossibleMoves(tile: TileData) {
+        switch (tile.type) {
             case 'pawn':
-                return this.pawnService.getMoves(item).filter(item => !this.onAlly(item));;
+                return this.pawnService.getMoves(tile).filter(item => !this.onAlly(item, tile));;
             case 'knight':
-                return this.knightService.getMoves(item).filter(item => !this.onAlly(item));
+                return this.knightService.getMoves(tile).filter(item => !this.onAlly(item, tile));
             default:
                 return
         }

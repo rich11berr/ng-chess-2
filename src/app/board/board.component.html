@@ -1,4 +1,4 @@
-<div class="board" cdkDropListGroup>
+<div class="board" cdkDropListGroup [ngClass]="getFlipClass()">
   <ng-container *ngFor="let tileR of boardData.row">
     <ng-container *ngFor="let tileC of boardData.column">
       <div
@@ -7,6 +7,7 @@
         class="tile"
         [id]="getTileId(tileR, tileC)"
         [ngClass]="[
+          getAttackedTile(tileR, tileC),
           getHighlightedTile(tileR, tileC),
           blackOrWhite(tileR, tileC)
         ]"
@@ -16,16 +17,40 @@
             [ngSwitch]="piece.type"
             *ngIf="getTile(tileR, tileC, piece)"
           >
-            <pawn *ngSwitchCase="'pawn'" [data]="piece"></pawn>
-            <bishop *ngSwitchCase="'bishop'" [data]="piece"></bishop>
-            <queen *ngSwitchCase="'queen'" [data]="piece"></queen>
-            <king *ngSwitchCase="'king'" [data]="piece"></king>
-            <knight *ngSwitchCase="'knight'" [data]="piece"></knight>
-            <rook *ngSwitchCase="'rook'" [data]="piece"></rook>
+            <pawn
+              *ngSwitchCase="'pawn'"
+              [data]="piece"
+              [ngClass]="getFlipClass()"
+            ></pawn>
+            <bishop
+              *ngSwitchCase="'bishop'"
+              [data]="piece"
+              [ngClass]="getFlipClass()"
+            ></bishop>
+            <queen
+              *ngSwitchCase="'queen'"
+              [data]="piece"
+              [ngClass]="getFlipClass()"
+            ></queen>
+            <king
+              *ngSwitchCase="'king'"
+              [data]="piece"
+              [ngClass]="getFlipClass()"
+            ></king>
+            <knight
+              *ngSwitchCase="'knight'"
+              [data]="piece"
+              [ngClass]="getFlipClass()"
+            ></knight>
+            <rook
+              *ngSwitchCase="'rook'"
+              [data]="piece"
+              [ngClass]="getFlipClass()"
+            ></rook>
           </ng-container>
         </ng-container>
 
-        <span class="tile__label"
+        <span class="tile__label" [ngClass]="getFlipClass()"
           >{{ tileR | getNormalizeRow }} / {{ tileC }}</span
         >
       </div>

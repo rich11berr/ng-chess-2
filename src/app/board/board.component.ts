@@ -41,6 +41,19 @@ export class BoardComponent implements OnInit {
         }
     }
 
+    public getAttackedTile(row: number, column: number) {
+        let tile = [row, column]
+
+        if (
+            this.boardService.attackedTiles.find(item => JSON.stringify(item) === JSON.stringify(tile)) !== undefined
+        ) {
+            console.log(`active tile is ${row}/${column}`)
+            return 'attack'
+        } else {
+            return ''
+        }
+    }
+
     public blackOrWhite(row: number, column: number): string {
         if (row % 2 === 0) {
             if (column % 2 === 0) {
@@ -54,6 +67,14 @@ export class BoardComponent implements OnInit {
             } else {
                 return 'black'
             }
+        }
+    }
+
+    public getFlipClass() {
+        if (this.boardService.boardFlipped) {
+            return 'flipped'
+        } else {
+            return ''
         }
     }
 

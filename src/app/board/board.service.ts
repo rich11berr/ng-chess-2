@@ -183,11 +183,28 @@ export class BoardService {
         },
     ]
 
+    private previousState: TileData[] = [];
+
     public boardState: TileData[] = this.initialState;
 
     public highlightedTiles: number[][] = [];
+    public attackedTiles: number[][] = [];
+
+    public boardFlipped: boolean = true
 
     constructor() { }
+
+    public resetGame() {
+        this.boardState = this.initialState;
+    }
+
+    public onMove() {
+        this.previousState = this.boardState;
+    }
+
+    public undoMove() {
+        this.boardState = this.previousState;
+    }
 
 
 
