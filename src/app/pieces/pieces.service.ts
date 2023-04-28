@@ -18,7 +18,9 @@ export class PieceService {
     }
 
     public onPieceDropped(event: CdkDragDrop<any>) {
-        // console.log(event)
+        this.boardService.setPrevState();
+
+
         const previosTileId = event.previousContainer.element.nativeElement.id.split('').map(Number);
         const currentTileId = event.container.element.nativeElement.id.split('').map(Number);
 
@@ -38,13 +40,15 @@ export class PieceService {
             currentItem.isFirstMove = false;
         }
 
-
-
+        //delete previous pice
         const itemId = this.boardService.boardState.indexOf(currentItem);
         this.boardService.boardState.splice(itemId, 1);
 
+        //add new piece
         currentItem.coord = currentTileId;
         this.boardService.boardState.push(currentItem);
+
+        this.boardService.onMove();
     }
 
 

@@ -6,6 +6,14 @@ h1 {
 .wrapper {
   margin: auto;
   display: flex;
+  gap: 50px;
   align-items: center;
   justify-content: center;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
 }

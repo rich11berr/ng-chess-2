@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 import { PawnComponent } from '../pieces/pawn/pawn.component';
 import { PieceService } from '../pieces/pieces.service';
 import { TileData } from './board-spec';
@@ -10,23 +11,41 @@ import { BoardService } from './board.service';
     styleUrls: ['./board.component.scss'],
 })
 
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit, OnDestroy {
 
     public boardData = {
         row: [1, 2, 3, 4, 5, 6, 7, 8],
         column: [1, 2, 3, 4, 5, 6, 7, 8]
     }
 
+    public boardState!: TileData[];
+
+    private destroy$ = new Subject<void>();
+
     constructor(
         public boardService: BoardService,
         public pieceService: PieceService,
-    ) { }
+        private ref: ChangeDetectorRef,
+    ) {
+    }
 
     public getTileId(row: number, column: number): string {
         return `${row}${column}`
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.boardService.boardState$
+            .pipe(takeUntil(this.destroy$))
+            .subscribe(res => {
+                this.boardState = res;
+                // this.ref.detectChanges();
+            })
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
+    }
 
     public getHighlightedTile(row: number, column: number) {
         let tile = [row, column]
@@ -34,7 +53,6 @@ export class BoardComponent implements OnInit {
         if (
             this.boardService.highlightedTiles.find(item => JSON.stringify(item) === JSON.stringify(tile)) !== undefined
         ) {
-            console.log(`active tile is ${row}/${column}`)
             return 'highlighted'
         } else {
             return ''

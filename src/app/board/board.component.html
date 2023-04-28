@@ -12,7 +12,7 @@
           blackOrWhite(tileR, tileC)
         ]"
       >
-        <ng-container *ngFor="let piece of boardService.boardState">
+        <ng-container *ngFor="let piece of boardService.boardState$ | async">
           <ng-container
             [ngSwitch]="piece.type"
             *ngIf="getTile(tileR, tileC, piece)"
