@@ -65,7 +65,6 @@ export class BoardComponent implements OnInit, OnDestroy {
         if (
             this.boardService.attackedTiles.find(item => JSON.stringify(item) === JSON.stringify(tile)) !== undefined
         ) {
-            console.log(`active tile is ${row}/${column}`)
             return 'attack'
         } else {
             return ''

@@ -62,6 +62,10 @@ export class KnightService {
         return possibleMoves;
     }
 
+    public getAttacks(currentData: TileData) {
+        return this.getMoves(currentData);
+    }
+
 
 
 

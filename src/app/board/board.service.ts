@@ -186,7 +186,6 @@ export class BoardService {
     //     },
     // ]
 
-    private previousState$: BehaviorSubject<TileData[]> = new BehaviorSubject(this.returnInitialState());
 
     public boardState: TileData[];
 
@@ -217,12 +216,8 @@ export class BoardService {
 
     public undoMove() {
         console.log('undo')
-        this.boardState = this.previousState$.value;
-        this.boardState$.next(this.boardState);
-    }
-
-    public setPrevState() {
-        this.previousState$.next(this.boardState);
+        // this.boardState = this.previousState$.value;
+        // this.boardState$.next(this.previousState$.value);
     }
 
     private returnInitialState(): TileData[] {

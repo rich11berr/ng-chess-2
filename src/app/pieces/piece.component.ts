@@ -34,10 +34,12 @@ export class PieceComponent implements OnInit {
 
     public onDragStart(event: any) {
         this.pieceService.highlightMoves(this.data);
+        this.pieceService.highlightAttacks(this.data);
     }
 
     public onDragEnd(event: any) {
         this.pieceService.deHighlightMoves();
+        this.pieceService.deHighlightAttacks();
     }
 
 

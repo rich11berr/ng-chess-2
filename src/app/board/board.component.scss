@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   &__label {
     position: absolute;
@@ -48,12 +49,12 @@
 
 .highlighted {
   background-color: $green;
-  border: 1px solid $green;
+  border: 1px solid $black;
 }
 
 .attack {
-  background-color: 1px solid $red;
-  border: 1px solid $red;
+  background-color: $red;
+  border: 1px solid $black;
 }
 
 .flipped {

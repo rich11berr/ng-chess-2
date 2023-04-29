@@ -15,12 +15,14 @@ export class MatchControlsComponent {
 
   public undoMove() {
     this.boardService.undoMove();
-    this.ref.detectChanges();
   }
 
   public resetGame() {
     this.boardService.resetGame();
-    this.ref.detectChanges();
+  }
+
+  public flipTable() {
+    this.boardService.boardFlipped = !this.boardService.boardFlipped
   }
 
 }

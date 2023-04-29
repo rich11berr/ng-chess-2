@@ -27,4 +27,18 @@ export class PawnService {
         return possibleMoves;
     }
 
+    public getAttacks(currentData: TileData) {
+        let possibleAttacks = [];
+        const row = currentData.coord[0];
+        const column = currentData.coord[1];
+
+        if (currentData.color === 'white') {
+            possibleAttacks.push([row + 1, column + 1], [row - 1, column + 1]);
+        } else {
+            possibleAttacks.push([row + 1, column - 1], [row - 1, column - 1]);
+        }
+
+        return possibleAttacks;
+    }
+
 }
