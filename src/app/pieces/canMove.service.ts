@@ -24,4 +24,8 @@ export class CanMoveService {
         } else return false;
     }
 
+    public getTile(target: number[]): TileData | undefined {
+        return this.boardService.boardState.find(item => JSON.stringify(item.coord) == JSON.stringify(target));
+    }
+
 }

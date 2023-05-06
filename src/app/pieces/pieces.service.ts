@@ -8,6 +8,7 @@ import { KingService } from './king/king.service';
 import { KnightService } from './knight/knight.service';
 import { PawnComponent } from './pawn/pawn.component';
 import { PawnService } from './pawn/pawn.service';
+import { QueenService } from './queen/queen.service';
 import { RookService } from './rook/rook.service';
 
 @Injectable()
@@ -21,7 +22,8 @@ export class PieceService {
         private knightService: KnightService,
         private kingService: KingService,
         private rookService: RookService,
-        private bishopService: BishopService
+        private bishopService: BishopService,
+        private queenService: QueenService
     ) {
     }
 
@@ -78,7 +80,6 @@ export class PieceService {
 
     public highlightMoves(item: TileData) {
         this.boardService.highlightedTiles = this.getPossibleMoves(item)!;
-        console.log('moves', this.boardService.highlightedTiles)
     }
 
     public deHighlightMoves() {
@@ -87,7 +88,6 @@ export class PieceService {
 
     public highlightAttacks(item: TileData) {
         this.boardService.attackedTiles = this.getPossibleAttacks(item)!;
-        console.log('attacks', this.boardService.attackedTiles)
     }
 
     public deHighlightAttacks() {
@@ -108,6 +108,8 @@ export class PieceService {
                 return this.rookService.getMoves(tile).filter(item => !this.canMoveService.onPiece(item, tile));
             case 'bishop':
                 return this.bishopService.getMoves(tile).filter(item => !this.canMoveService.onPiece(item, tile));
+            case 'queen':
+                return this.queenService.getMoves(tile).filter(item => !this.canMoveService.onPiece(item, tile));
             default:
                 return
         }
@@ -125,6 +127,8 @@ export class PieceService {
                 return this.rookService.getAttacks(tile).filter(item => this.canMoveService.onEnemy(item, tile));
             case 'bishop':
                 return this.bishopService.getAttacks(tile).filter(item => this.canMoveService.onEnemy(item, tile));
+            case 'queen':
+                return this.queenService.getAttacks(tile).filter(item => this.canMoveService.onEnemy(item, tile));
             default:
                 return
         }

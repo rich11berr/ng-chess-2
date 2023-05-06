@@ -20,6 +20,7 @@ import { PawnComponent } from './pieces/pawn/pawn.component';
 import { PawnService } from './pieces/pawn/pawn.service';
 import { PieceComponent } from './pieces/piece.component';
 import { QueenComponent } from './pieces/queen/queen.component';
+import { QueenService } from './pieces/queen/queen.service';
 import { RookComponent } from './pieces/rook/rook.component';
 import { RookService } from './pieces/rook/rook.service';
 import { MatchControlsComponent } from './ui/match-controls/match-controls.component';
@@ -41,7 +42,8 @@ const services = [
   KnightService,
   KingService,
   RookService,
-  BishopService
+  BishopService,
+  QueenService,
 ]
 
 @NgModule({

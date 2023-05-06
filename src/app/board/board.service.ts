@@ -274,41 +274,49 @@ export class BoardService {
                 type: Pieces.BISHOP,
                 coord: [6, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.BISHOP,
                 coord: [3, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.KNIGHT,
                 coord: [7, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.KNIGHT,
                 coord: [2, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.ROOK,
                 coord: [8, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.ROOK,
                 coord: [1, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.QUEEN,
                 coord: [4, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.KING,
                 coord: [5, 1],
                 color: Color.WHITE,
+                isFirstMove: true
             },
             {
                 type: Pieces.PAWN,
@@ -362,41 +370,49 @@ export class BoardService {
                 type: Pieces.KNIGHT,
                 coord: [2, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
             {
                 type: Pieces.KNIGHT,
                 coord: [7, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
             {
                 type: Pieces.ROOK,
                 coord: [1, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
             {
                 type: Pieces.ROOK,
                 coord: [8, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
             {
                 type: Pieces.BISHOP,
                 coord: [3, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
             {
                 type: Pieces.BISHOP,
                 coord: [6, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
             {
                 type: Pieces.QUEEN,
                 coord: [4, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
             {
                 type: Pieces.KING,
                 coord: [5, 8],
                 color: Color.BLACK,
+                isFirstMove: true
             },
         ]
     }

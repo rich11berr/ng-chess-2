@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { TileData } from 'src/app/board/board-spec';
 import { BoardService } from 'src/app/board/board.service';
+import { CanMoveService } from '../canMove.service';
 
 @Injectable()
 export class KingService {
 
     constructor(
-        private boardService: BoardService
+        private boardService: BoardService,
+        private canMoveService: CanMoveService
     ) { }
 
     public getMoves(currentData: TileData) {
