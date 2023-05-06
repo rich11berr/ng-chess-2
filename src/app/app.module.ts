@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { BoardService } from './board/board.service';
 import { RowPipe } from './board/boardRow.pipe';
 import { BishopComponent } from './pieces/bishop/bishop.component';
+import { BishopService } from './pieces/bishop/bishop.service';
 import { CanMoveService } from './pieces/canMove.service';
 import { KingComponent } from './pieces/king/king.component';
 import { KingService } from './pieces/king/king.service';
@@ -40,6 +41,7 @@ const services = [
   KnightService,
   KingService,
   RookService,
+  BishopService
 ]
 
 @NgModule({

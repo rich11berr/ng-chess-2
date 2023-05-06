@@ -2,6 +2,7 @@ import { CdkDragDrop, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Injectable } from '@angular/core';
 import { TileData } from '../board/board-spec';
 import { BoardService } from '../board/board.service';
+import { BishopService } from './bishop/bishop.service';
 import { CanMoveService } from './canMove.service';
 import { KingService } from './king/king.service';
 import { KnightService } from './knight/knight.service';
@@ -20,6 +21,7 @@ export class PieceService {
         private knightService: KnightService,
         private kingService: KingService,
         private rookService: RookService,
+        private bishopService: BishopService
     ) {
     }
 
@@ -104,6 +106,8 @@ export class PieceService {
                 return this.kingService.getMoves(tile).filter(item => !this.canMoveService.onPiece(item, tile));
             case 'rook':
                 return this.rookService.getMoves(tile).filter(item => !this.canMoveService.onPiece(item, tile));
+            case 'bishop':
+                return this.bishopService.getMoves(tile).filter(item => !this.canMoveService.onPiece(item, tile));
             default:
                 return
         }
@@ -119,6 +123,8 @@ export class PieceService {
                 return this.kingService.getAttacks(tile).filter(item => this.canMoveService.onEnemy(item, tile));
             case 'rook':
                 return this.rookService.getAttacks(tile).filter(item => this.canMoveService.onEnemy(item, tile));
+            case 'bishop':
+                return this.bishopService.getAttacks(tile).filter(item => this.canMoveService.onEnemy(item, tile));
             default:
                 return
         }
