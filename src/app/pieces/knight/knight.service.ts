@@ -5,24 +5,10 @@ import { PieceService } from '../pieces.service';
 
 @Injectable()
 export class KnightService {
-    constructor(
-        private boardService: BoardService
-    ) { }
+    constructor() { }
 
-    // public getMoves(currentData: TileData) {
-    //     let possibleMoves = [];
-    //     const row = currentData.coord[0];
-    //     const column = currentData.coord[1];
-
-    //     if (column <= 2) {
-    //         possibleMoves.push([row + 1, column + 2], [row + 2, column + 1]);
-    //     } else if (column >= 7) {
-    //         possibleMoves.push([row + 1, column - 2], [row + 2, column - 1]);
-    //     }
-
-    // }
     public getMoves(currentData: TileData) {
-        let possibleMoves = [];
+        const possibleMoves = [];
         const row = currentData.coord[0];
         const column = currentData.coord[1];
 
